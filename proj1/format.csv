@@ -1,0 +1,8 @@
+ELEMENT_TYPE,BACKGROUND,FOREGROUND,STYLE,FONT
+DEFAULT,navy,yellow,,"Courier New"
+FUNCTION,,orange,,
+VARIABLE,,yellow,,
+FLOAT_CONSTANT,,aqua,b,
+INT_CONSTANT,,aqua,b,
+OPERATOR,,white,b,
+KEYWORD,,white,b,
