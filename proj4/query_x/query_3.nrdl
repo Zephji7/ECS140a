@@ -1,0 +1,15 @@
+# Facts
+###############################################################
+Product(maker, model, year)
+Car(model, city, highway, style, passengers, trunk, msrp)
+Pickup(model, city, highway, passengers, cargo, towing, msrp)
+EV(model, range, battery, passengers, msrp)
+###############################################################
+
+# q3
+Answer(maker) := Product(maker,model,_) AND Car(model,_,_,_,_,_,msrp) AND msrp < 27000
+Answer(maker) := Product(maker,model,_) AND Car(model,_,_,_,_,_,msrp) AND msrp > 55000
+Answer(maker) := Product(maker,model,_) AND Pickup(model,_,_,_,_,_,msrp) AND msrp < 27000
+Answer(maker) := Product(maker,model,_) AND Pickup(model,_,_,_,_,_,msrp) AND msrp > 55000
+Answer(maker) := Product(maker,model,_) AND EV(model,_,_,_,msrp) AND msrp < 27000
+Answer(maker) := Product(maker,model,_) AND EV(model,_,_,_,msrp) AND msrp > 55000

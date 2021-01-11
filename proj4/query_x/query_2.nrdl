@@ -1,0 +1,10 @@
+# Facts
+###############################################################
+Product(maker, model, year)
+Car(model, city, highway, style, passengers, trunk, msrp)
+Pickup(model, city, highway, passengers, cargo, towing, msrp)
+EV(model, range, battery, passengers, msrp)
+###############################################################
+
+# q2
+Answer(model) := Pickup(model,_,highway,_,_,trunk,_) AND trunk >= 75 AND highway < 25

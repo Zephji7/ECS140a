@@ -1,0 +1,5 @@
+# Error example of non-sequential duplicate name
+Car(model, city, highway, style, passengers, trunk, msrp)
+Vehicle(model) := Car(model,_,_,_,_,_,_)
+Pickup(model, city, highway, passengers, cargo, towing, msrp)
+Vehicle(model) := Pickup(model,_,_,_,_,_,_)

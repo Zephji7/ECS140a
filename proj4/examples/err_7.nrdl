@@ -1,0 +1,3 @@
+# Example of unsafe variables
+Product(maker, model, year)
+ProductA(maker,model,year) := Product(mk,model,year) AND maker = mk

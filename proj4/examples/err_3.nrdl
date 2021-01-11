@@ -1,0 +1,4 @@
+# Error example of recursive invocation
+Pickup(model, city, highway, passengers, cargo, towing, msrp)
+Rule1(x) := Pickup(x,_,_,_,_,_,_)
+Rule1(x) := Rule1(x) AND x > 3

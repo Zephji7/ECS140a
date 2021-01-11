@@ -1,0 +1,11 @@
+# Facts
+###############################################################
+Product(maker, model, year)
+Car(model, city, highway, style, passengers, trunk, msrp)
+Pickup(model, city, highway, passengers, cargo, towing, msrp)
+EV(model, range, battery, passengers, msrp)
+###############################################################
+
+# q7
+Notlowest(model) := Pickup(model,_,highway1,_,_,_,_) AND Pickup(_,_,highway2,_,_,_,_) AND highway1 > highway2
+Answer(maker) := Product(maker,model,_) AND Pickup(model,_,_,_,_,_,_) AND NOT Notlowest(model)

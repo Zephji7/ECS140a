@@ -1,0 +1,69 @@
+# Find the most common name by year and gender
+SSNames2010(name,gender,year,count)
+SSNames2011(name,gender,year,count)
+SSNames2012(name,gender,year,count)
+SSNames2013(name,gender,year,count)
+SSNames2014(name,gender,year,count)
+SSNames2015(name,gender,year,count)
+SSNames2016(name,gender,year,count)
+SSNames2017(name,gender,year,count)
+SSNames2018(name,gender,year,count)
+# Load only female names by year
+F2010Names(name,gender,year,count) := SSNames2010(name,gender,year,count) AND gender = "F" AND year = 2010
+F2011Names(name,gender,year,count) := SSNames2011(name,gender,year,count) AND gender = "F" AND year = 2011
+F2012Names(name,gender,year,count) := SSNames2012(name,gender,year,count) AND gender = "F" AND year = 2012
+F2013Names(name,gender,year,count) := SSNames2013(name,gender,year,count) AND gender = "F" AND year = 2013
+F2014Names(name,gender,year,count) := SSNames2014(name,gender,year,count) AND gender = "F" AND year = 2014
+F2015Names(name,gender,year,count) := SSNames2015(name,gender,year,count) AND gender = "F" AND year = 2015
+F2016Names(name,gender,year,count) := SSNames2016(name,gender,year,count) AND gender = "F" AND year = 2016
+F2017Names(name,gender,year,count) := SSNames2017(name,gender,year,count) AND gender = "F" AND year = 2017
+F2018Names(name,gender,year,count) := SSNames2018(name,gender,year,count) AND gender = "F" AND year = 2018
+# Load only male names by year
+M2010Names(name,gender,year,count) := SSNames2010(name,gender,year,count) AND gender = "M" AND year = 2010
+M2011Names(name,gender,year,count) := SSNames2011(name,gender,year,count) AND gender = "M" AND year = 2011
+M2012Names(name,gender,year,count) := SSNames2012(name,gender,year,count) AND gender = "M" AND year = 2012
+M2013Names(name,gender,year,count) := SSNames2013(name,gender,year,count) AND gender = "M" AND year = 2013
+M2014Names(name,gender,year,count) := SSNames2014(name,gender,year,count) AND gender = "M" AND year = 2014
+M2015Names(name,gender,year,count) := SSNames2015(name,gender,year,count) AND gender = "M" AND year = 2015
+M2016Names(name,gender,year,count) := SSNames2016(name,gender,year,count) AND gender = "M" AND year = 2016
+M2017Names(name,gender,year,count) := SSNames2017(name,gender,year,count) AND gender = "M" AND year = 2017
+M2018Names(name,gender,year,count) := SSNames2018(name,gender,year,count) AND gender = "M" AND year = 2018
+# Find non-max female names
+F2010NamesNonMax(name,gender,year,count) := F2010Names(name,gender,year,count) AND F2010Names(_,_,_,ocount) AND count < ocount
+F2011NamesNonMax(name,gender,year,count) := F2011Names(name,gender,year,count) AND F2011Names(_,_,_,ocount) AND count < ocount
+F2012NamesNonMax(name,gender,year,count) := F2012Names(name,gender,year,count) AND F2012Names(_,_,_,ocount) AND count < ocount
+F2013NamesNonMax(name,gender,year,count) := F2013Names(name,gender,year,count) AND F2013Names(_,_,_,ocount) AND count < ocount
+F2014NamesNonMax(name,gender,year,count) := F2014Names(name,gender,year,count) AND F2014Names(_,_,_,ocount) AND count < ocount
+F2015NamesNonMax(name,gender,year,count) := F2015Names(name,gender,year,count) AND F2015Names(_,_,_,ocount) AND count < ocount
+F2016NamesNonMax(name,gender,year,count) := F2016Names(name,gender,year,count) AND F2016Names(_,_,_,ocount) AND count < ocount
+F2017NamesNonMax(name,gender,year,count) := F2017Names(name,gender,year,count) AND F2017Names(_,_,_,ocount) AND count < ocount
+F2018NamesNonMax(name,gender,year,count) := F2018Names(name,gender,year,count) AND F2018Names(_,_,_,ocount) AND count < ocount
+# Find non-max male names
+M2010NamesNonMax(name,gender,year,count) := M2010Names(name,gender,year,count) AND M2010Names(_,_,_,ocount) AND count < ocount
+M2011NamesNonMax(name,gender,year,count) := M2011Names(name,gender,year,count) AND M2011Names(_,_,_,ocount) AND count < ocount
+M2012NamesNonMax(name,gender,year,count) := M2012Names(name,gender,year,count) AND M2012Names(_,_,_,ocount) AND count < ocount
+M2013NamesNonMax(name,gender,year,count) := M2013Names(name,gender,year,count) AND M2013Names(_,_,_,ocount) AND count < ocount
+M2014NamesNonMax(name,gender,year,count) := M2014Names(name,gender,year,count) AND M2014Names(_,_,_,ocount) AND count < ocount
+M2015NamesNonMax(name,gender,year,count) := M2015Names(name,gender,year,count) AND M2015Names(_,_,_,ocount) AND count < ocount
+M2016NamesNonMax(name,gender,year,count) := M2016Names(name,gender,year,count) AND M2016Names(_,_,_,ocount) AND count < ocount
+M2017NamesNonMax(name,gender,year,count) := M2017Names(name,gender,year,count) AND M2017Names(_,_,_,ocount) AND count < ocount
+M2018NamesNonMax(name,gender,year,count) := M2018Names(name,gender,year,count) AND M2018Names(_,_,_,ocount) AND count < ocount
+# Find final answer
+SSNamesMax(name,gender,year,count) := F2010Names(name,gender,year,count) AND NOT F2010NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := F2011Names(name,gender,year,count) AND NOT F2011NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := F2012Names(name,gender,year,count) AND NOT F2012NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := F2013Names(name,gender,year,count) AND NOT F2013NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := F2014Names(name,gender,year,count) AND NOT F2014NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := F2015Names(name,gender,year,count) AND NOT F2015NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := F2016Names(name,gender,year,count) AND NOT F2016NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := F2017Names(name,gender,year,count) AND NOT F2017NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := F2018Names(name,gender,year,count) AND NOT F2018NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := M2010Names(name,gender,year,count) AND NOT M2010NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := M2011Names(name,gender,year,count) AND NOT M2011NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := M2012Names(name,gender,year,count) AND NOT M2012NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := M2013Names(name,gender,year,count) AND NOT M2013NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := M2014Names(name,gender,year,count) AND NOT M2014NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := M2015Names(name,gender,year,count) AND NOT M2015NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := M2016Names(name,gender,year,count) AND NOT M2016NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := M2017Names(name,gender,year,count) AND NOT M2017NamesNonMax(name,gender,year,count)
+SSNamesMax(name,gender,year,count) := M2018Names(name,gender,year,count) AND NOT M2018NamesNonMax(name,gender,year,count)

@@ -1,0 +1,3 @@
+# Example of finding all but oldest model
+Product(maker, model, year)
+ProductNotOldest(maker,model,year) := Product(maker,model,year) AND Product(_,_,y2) AND year > y2

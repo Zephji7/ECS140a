@@ -1,0 +1,18 @@
+# Facts
+###############################################################
+Product(maker, model, year)
+Car(model, city, highway, style, passengers, trunk, msrp)
+Pickup(model, city, highway, passengers, cargo, towing, msrp)
+EV(model, range, battery, passengers, msrp)
+###############################################################
+
+# q6
+conventfilter(model,city,highway) := Car(model,city,highway,_,_,_,_)
+conventfilter(model,city,highway) := Pickup(model,city,highway,_,_,_,_)
+Notbestconvent(model) := conventfilter(model,city1,highway1) AND conventfilter(_,city2,highway2) AND (0.55*city1+0.45*highway1) < (0.55*city2+0.45*highway2)
+bestconvent(model,city,highway) := conventfilter(model,city,highway) AND NOT Notbestconvent(model)
+evfilter(model,range,battery) := EV(model,range,battery,_,_)
+Notbestev(model) := evfilter(model,range1,battery1) AND evfilter(_,range2,battery2) AND (range1/battery1) < (range2/battery2)
+bestev(model,range,battery) := evfilter(model,range,battery) AND NOT Notbestev(model)
+Answer(model) := bestconvent(model,city,highway) AND bestev(_,range,battery) AND (0.55*city+0.45*highway) > (33.1*range/battery)
+Answer(model) := bestconvent(_,city,highway) AND bestev(model,range,battery) AND (0.55*city+0.45*highway) < (33.1*range/battery)

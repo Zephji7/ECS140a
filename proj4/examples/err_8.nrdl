@@ -1,0 +1,3 @@
+# Example of syntax error
+Product(maker, model, year)
+ProductA(maker,model,year) := Product(maker,model,year) AND 12(model)

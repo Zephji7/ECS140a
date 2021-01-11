@@ -1,0 +1,5 @@
+# Error example of invocation with too few variables
+Car(model, city, highway, style, passengers, trunk, msrp)
+Pickup(model, city, highway, passengers, cargo, towing, msrp)
+Vehicle(model) := Car(model,_,_,_,_,_)
+Vehicle(model) := Pickup(model,_,_,_,_,_,_)

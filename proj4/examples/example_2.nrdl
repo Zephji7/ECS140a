@@ -1,0 +1,3 @@
+# Example of simple filtering on fact
+Product(maker, model, year)
+ProductA(model,year) := Product(maker,model,year) AND maker = "A"

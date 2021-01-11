@@ -1,0 +1,13 @@
+# Facts
+###############################################################
+Product(maker, model, year)
+Car(model, city, highway, style, passengers, trunk, msrp)
+Pickup(model, city, highway, passengers, cargo, towing, msrp)
+EV(model, range, battery, passengers, msrp)
+###############################################################
+
+# q5
+conventfilter(model,city,highway) := Car(model,city,highway,_,_,_,_)
+conventfilter(model,city,highway) := Pickup(model,city,highway,_,_,_,_)
+notAnswer(model) := conventfilter(model,city1,highway1) AND conventfilter(_,city2,highway2) AND (0.55*city1+0.45*highway1) < (0.55*city2+0.45*highway2)
+Answer(maker) := Product(maker,model,_) AND conventfilter(model,_,_) AND NOT notAnswer(model)

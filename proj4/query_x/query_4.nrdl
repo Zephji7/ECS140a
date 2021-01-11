@@ -1,0 +1,13 @@
+# Facts
+###############################################################
+Product(maker, model, year)
+Car(model, city, highway, style, passengers, trunk, msrp)
+Pickup(model, city, highway, passengers, cargo, towing, msrp)
+EV(model, range, battery, passengers, msrp)
+###############################################################
+
+# q4
+passengerfilter(model,passengers) := Car(model,_,_,_,passengers,_,_)
+passengerfilter(model,passengers) := Pickup(model,_,_,passengers,_,_,_)
+passengerfilter(model,passengers) := EV(model,_,_,passengers,_)
+Answer(passengers) := passengerfilter(model1,passengers) AND passengerfilter(model2,passengers) AND passengerfilter(model3,passengers) AND model1 != model2 AND model2 != model3 AND model1 != model3

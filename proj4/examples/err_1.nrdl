@@ -1,0 +1,3 @@
+# Error example of redeclaring fact
+Product(maker, model, year)
+Product(maker, model, year)

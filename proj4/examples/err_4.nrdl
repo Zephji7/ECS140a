@@ -1,0 +1,5 @@
+# Error example of invocation before declaration
+Car(model, city, highway, style, passengers, trunk, msrp)
+Vehicle(model) := Car(model,_,_,_,_,_,_)
+Vehicle(model) := Pickup(model,_,_,_,_,_,_)
+Pickup(model, city, highway, passengers, cargo, towing, msrp)
